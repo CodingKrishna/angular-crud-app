@@ -1,0 +1,52 @@
+<!DOCUMENT html>
+<html>
+    <head>
+        <title>CurdApp</title>
+        <link rel="stylesheet" type="text/css" href="../css/curdApp.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body ng-app="myApp" ng-controller="tabCtrl" >
+        <div class="col-md-12 col-xs-12">
+            <div class="col-md-12 col-xs-12">
+                <div class="col-md-12 col-xs-12 header">
+                    <h1>FriendsList</h1>
+                </div> 
+            <div class="row">
+                <div class="col-md-4 col-xs-12 feild-container md-pad" >
+                    <form style="width: 86%;"action="" >
+                        <fieldset>
+                        <legend>AddFriends:</legend>
+                        <b>Name:</b><input class="input-txt" type="text" ng-model="friend.name" placeholder="FriendName"><br>
+                        <b>Id:</b><input class="input-txt md-mar" type="text" ng-model="friend.id" placeholder="FriendId" ><br>
+                        <b>Mobile:</b><input  class="input-txt" type="text"ng-model="friend.mobileNo" placeholder="FriendMobile"><br>
+                        <b>Email:</b> <input class="input-txt " type="text" ng-model="friend.emailId" placeholder="FriendEmail"><br>
+                        </fieldset>
+                    </form>
+                    <button class="tab-btn btn-mar" ng-click="addFriend()">Add</button>
+                    <button class="tab-btn" ng-if="hideButton" ng-click="updateFriendInfo()">update</button>
+                </div>
+                <div class="col-md-8 col-xs-12 feild-container">
+                    <table class="rwd-table">
+                        <tr><th>S.no</th><th>Id</th> <th>Name</th><th>Mobile</th><th>Email</th><th>Actions</th></tr>
+                        <tr ng-repeat="list in friendsList">
+                            <td>{{$index + 1}}</td>
+                            <td>{{list.id}}</td>
+                            <td>{{list.name }}</td>
+                            <td>{{list.mobileNo }}</td>
+                            <td>{{list.emailId}}</td>
+                            <td><button class="tab-btn" ng-click="editFriendInfo(list,$index)">Edit</button><button class="tab-btn" ng-click="deleteFriend($index)">Delete</button></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="">
+                    <h2>Are you Sure</h2>
+                    <button class="">Yes</button>
+                    <button class="">NO</button>
+                </div>
+        </div>
+        </div>
+        </div>
+    </body>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/CurdApp.js"></script>
+</html>
